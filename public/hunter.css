@@ -3,7 +3,7 @@ html,body {
   color: white;
   margin:0;
   /*cursor: url(image/flashcursor.png)*/
-  cursor:grabbing;
+  cursor:none;
   font-family: 'IM Fell English', serif;
 
 
@@ -68,7 +68,7 @@ html{
   font-size: 10px;
   text-align: center;
   border-style: outset;
-  cursor: grab;
+  cursor: pointer;
 }
 
 h2{
@@ -130,6 +130,7 @@ a {
   width: 180px;
   height: 580px;
   z-index: 1;
+  cursor: auto;
     /*margin-bottom: -50px;*/
 }
 
