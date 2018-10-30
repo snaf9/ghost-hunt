@@ -28,8 +28,6 @@ let offsetx = $('.playbox').get(0).offsetLeft
 let offsety = $('.playbox').get(0).offsetTop
 
 
-
-
   $('.ghost').css({
     'position':'absolute' ,
     'left': averageGhostMouseData.x + offsetx ,

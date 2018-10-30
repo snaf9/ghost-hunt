@@ -58,7 +58,7 @@ socket.on('averageHunterMouse',function(averageHunterMouseData){
 
   console.log( $('.ghost') );
 
-socket.on('averageGhostMouse',function(averageGhostMouseData){
+  socket.on('averageGhostMouse',function(averageGhostMouseData){
   // console.log(averageGhostMouseData);
 
   let offsetx = $('.playbox').get(0).offsetLeft
@@ -76,13 +76,13 @@ socket.on('averageGhostMouse',function(averageGhostMouseData){
 let ghostOverlapLamp = $('.ghost').overlaps('.lamp').length;
 // console.log(  ghostOverlap );
 
-if(lampDebounce == false){ //if the  the debounce gate is open
- if( ghostOverlapLamp == 1 ){ //we hit!
-    $('.lamp').attr('src', 'image/lamp.gif') //change the image
-      console.log('lamp hit!')
-      lampDebounce = true; // close the debounce gate
-      setTimeout(function(){ //wait for the specified amount of time indicated below
-        lampDebounce = false; //open the gate back up.
+  if(lampDebounce == false){ //if the  the debounce gate is open
+    if( ghostOverlapLamp == 1 ){ //we hit!
+      $('.lamp').attr('src', 'image/lamp.gif') //change the image
+        console.log('lamp hit!')
+        lampDebounce = true; // close the debounce gate
+        setTimeout(function(){ //wait for the specified amount of time indicated below
+          lampDebounce = false; //open the gate back up.
       },1000) //1 second...
   }
 }
