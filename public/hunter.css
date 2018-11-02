@@ -3,7 +3,7 @@ html,body {
   color: white;
   margin:0;
   /*cursor: url(image/flashcursor.png)*/
-  cursor:none;
+  /* cursor:none; */
   font-family: 'IM Fell English', serif;
 
 
@@ -37,7 +37,7 @@ html{
 
 .ghost{
   /*display: none;*/
-  visibility: hidden;
+  /* visibility: hidden; */
   z-index: 1;
 
 }

@@ -7,8 +7,8 @@ socket.on('connect', function(data){
 
 $('body').mousemove(function(event){
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+  let offsetx = 0
+  let offsety = 0
 
   $('.flashcursor').css({
     'position':'absolute',
@@ -19,13 +19,19 @@ $('body').mousemove(function(event){
 })
 
 $('.playbox').mousemove(function(event) {
+  console.log(event);
 
-  //console.log(event.clientX, event.clientY)
+  let offsetx = $('.playbox').get(0).offsetLeft
+  let offsety = $('.playbox').get(0).offsetTop
+
+  // console.log(event.clientX, event.clientY)
+  // console.log(event.clientX - offsetx, event.clientY - offsety)
+
 
   var dataToSend = {
     'source': 'hunter',
-    'x': event.clientX,
-    'y': event.clientY
+    'x': event.clientX - offsetx, //subtract instead of add, since we're going to make the ghost and hunter position relative to the p[laybox.]
+    'y': event.clientY - offsety
   }
 
   socket.emit('mouseMovement', dataToSend); // send the data up to the server
@@ -35,10 +41,15 @@ $('.playbox').mousemove(function(event) {
 
 socket.on('averageHunterMouse',function(averageHunterMouseData){
 
-  //  console.log(averageMouseData);
+   // console.log(averageHunterMouseData);
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+  // let ooffsetx = $('.playbox').get(0).offsetLeft
+  // let ooffsety = $('.playbox').get(0).offsetTop
+  // console.log(ooffsetx ,ooffsety );
+
+  let offsetx = 0
+  let offsety = 0
+
 
 
   $('.flashlight').css({
@@ -61,8 +72,11 @@ socket.on('averageHunterMouse',function(averageHunterMouseData){
   socket.on('averageGhostMouse',function(averageGhostMouseData){
   // console.log(averageGhostMouseData);
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+  // let offsetx = $('.playbox').get(0).offsetLeft
+  // let offsety = $('.playbox').get(0).offsetTop
+
+  let offsetx = 0
+  let offsety = 0
 
   $('.ghost').css({
     'position':'absolute' ,
