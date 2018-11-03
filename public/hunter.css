@@ -37,7 +37,7 @@ html{
 
 .ghost{
   /*display: none;*/
-  visibility: hidden;
+  /*visibility: hidden;*/
   z-index: 1;
 
 }
@@ -63,12 +63,13 @@ html{
   border: 1px solid #fcce00;
   border-radius: 5px;
   width: 110px;
-  height: 110px;
+  height: 150px;
   margin: 20px;
   font-size: 10px;
   text-align: center;
   border-style: outset;
-  cursor: pointer;
+  margin-top: -60px;
+
 }
 
 h2{
@@ -99,6 +100,12 @@ a {
 
 
 }
+
+.instruction_ghost{
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
+
 
 
 .instruction2{

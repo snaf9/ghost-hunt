@@ -9,10 +9,14 @@ $('.playbox').mousemove(function(event) {
 
   //console.log(event.clientX, event.clientY)
 
+  let offsetx = $('.playbox').get(0).offsetLeft
+  let offsety = $('.playbox').get(0).offsetTop
+
+
   var dataToSend = {
     'source': 'ghost',
-    'x': event.clientX,
-    'y': event.clientY
+    'x': event.clientX - offsetx,
+    'y': event.clientY - offsety
   }
 
   socket.emit('mouseMovement', dataToSend); // send the data up to the server
@@ -24,14 +28,12 @@ let lampDebounce = false;
 socket.on('averageGhostMouse',function(averageGhostMouseData){
  console.log(averageGhostMouseData);
 
-let offsetx = $('.playbox').get(0).offsetLeft
-let offsety = $('.playbox').get(0).offsetTop
 
 
   $('.ghost').css({
     'position':'absolute' ,
-    'left': averageGhostMouseData.x + offsetx ,
-    'top': averageGhostMouseData.y + offsety ,
+    'left': averageGhostMouseData.x,
+    'top': averageGhostMouseData.y,
     'transition-timing-function' : 'ease-out' ,
     'transition' : '0.2s' ,
     'z-index': '3'
@@ -404,8 +406,8 @@ let offsety = $('.playbox').get(0).offsetTop
 
    //  console.log(averageMouseData);
 
-   let offsetx = $('.playbox').get(0).offsetLeft
-   let offsety = $('.playbox').get(0).offsetTop
+   // let offsetx = $('.playbox').get(0).offsetLeft
+   // let offsety = $('.playbox').get(0).offsetTop
 
 
    // console.log(averageMouseData);
@@ -419,8 +421,8 @@ let offsety = $('.playbox').get(0).offsetTop
 
    $('.flashlight').css({
      'position':'absolute' ,
-     'left': averageHunterMouseData.x + offsetx ,
-     'top': averageHunterMouseData.y + offsety ,
+     'left': averageHunterMouseData.x,
+     'top': averageHunterMouseData.y,
      'z-index': '2' ,
      'transition-timing-function' : 'ease-out' ,
      'transition' : '0.2s'

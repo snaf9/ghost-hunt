@@ -7,13 +7,13 @@ socket.on('connect', function(data){
 
 $('body').mousemove(function(event){
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+  let offsetx = 0
+  let offsety = 0
 
   $('.flashcursor').css({
     'position':'absolute',
-    'top': event.clientY + offsety,
-    'left':event.clientX + offsetx,
+    'top': event.clientY + offsety + 5,
+    'left':event.clientX + offsetx + 5,
     'z-index': '3'
   })
 })
@@ -22,10 +22,13 @@ $('.playbox').mousemove(function(event) {
 
   //console.log(event.clientX, event.clientY)
 
+  let offsetx = $('.playbox').get(0).offsetLeft
+  let offsety = $('.playbox').get(0).offsetTop
+
   var dataToSend = {
     'source': 'hunter',
-    'x': event.clientX,
-    'y': event.clientY
+    'x': event.clientX - offsetx,
+    'y': event.clientY - offsety
   }
 
   socket.emit('mouseMovement', dataToSend); // send the data up to the server
@@ -37,8 +40,8 @@ socket.on('averageHunterMouse',function(averageHunterMouseData){
 
   //  console.log(averageMouseData);
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+    let offsetx = 0
+   let offsety = 0
 
 
   $('.flashlight').css({
@@ -61,8 +64,8 @@ socket.on('averageHunterMouse',function(averageHunterMouseData){
   socket.on('averageGhostMouse',function(averageGhostMouseData){
   // console.log(averageGhostMouseData);
 
-  let offsetx = $('.playbox').get(0).offsetLeft
-  let offsety = $('.playbox').get(0).offsetTop
+  let offsetx = 0
+  let offsety = 0
 
   $('.ghost').css({
     'position':'absolute' ,
@@ -436,6 +439,12 @@ let ghostOverlapLamp = $('.ghost').overlaps('.lamp').length;
 
  }) // closes averageGhostMouse
 
+
+$('.switch').click(function(){
+
+  window.location.href="ghost.html";
+
+})
 
 
 //
