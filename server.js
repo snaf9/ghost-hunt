@@ -3,7 +3,7 @@ var app = express(); //invoke express
 var server = require('http').Server( app ) // start the express server instance
 var io = require('socket.io')(server) // use socket.io for real time connections aka. wesockets
 
-let port = 4000 || process.env.PORT
+let port = process.env.PORT
 
 //serve out any static files in our public HTML folder
 app.use(express.static('public'))
